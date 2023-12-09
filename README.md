@@ -1,12 +1,23 @@
 # makina-test
 ## To start the app
-Make sure to download Pillow first :
-<p style="text-align: center;">`pip install Pillow`</p>
-If still in the `makina-test` directory, go to `lebonangle/`:
-<p style="text-align: center;">`cd lebonangle`</p>
-Finally, launch app with :
-<p style="text-align: center;">`python manage.py runserver`</p>
+Make sure to download Pillow first : 
+```console
 
+~$ pip install Pillow
+
+```
+
+
+If still in the `makina-test/` directory, go to `lebonangle/` : 
+```console
+
+~$ cd lebonangle
+
+```
+Finally, launch app with : 
+```console
+~$ python manage.py runserver
+```
 Enjoy !
 ## Makina Corpus technical test
 Create a django-driven website that allows users to list their items for sale to other users.
