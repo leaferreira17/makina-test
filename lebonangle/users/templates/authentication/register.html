@@ -1,0 +1,22 @@
+{% extends 'homepage/base.html'%}
+{% block content %}
+
+<div id="app" class="container" style="max-width: 1200px;">
+    <div style="text-align: center !important;" class="py-5">
+        <h1>Register</h1>
+    </div>
+    <br/>
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{form.errors}}
+        </div>
+    {% endif %}
+    <br/>
+    <form action="{% url 'register' %}" method=POST>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+{% endblock %}

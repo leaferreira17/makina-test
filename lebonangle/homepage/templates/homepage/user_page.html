@@ -1,0 +1,39 @@
+{% extends 'homepage/base.html'%}
+{% block content %}
+
+<div id="app" class="container" style="max-width: 1200px;">
+    <div style="text-align: center !important;" class="py-5">
+        <h1>Your page</h1>
+    </div>
+    <div class=”row”>
+        {% for state, item_list in items.items %}
+            <div class=”col-6 col-md-3 col-lg-3”>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3>{{ state }}</h3>
+                    </div>
+                    <div class="card-body">
+                        {% for item in item_list %}
+                            <div class="card mb-5">
+                                {{ item.pub_date|date }} - {{ item.title }}
+                                <div class="col-sm-2">
+                                    {% if state == "Posted" %}
+                                        <form action="{% url 'cancel' item.pk %}">
+                                            <button class="btn btn-primary" type="submit">Cancel</button>
+                                        </form>
+                                    {% endif %}
+                                    {% if state == "Sold" %}
+                                        <p><small>Buyer : {{ item.buyer.username }} - {{ item.buyer.address }}</small></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% empty %}
+                            No items {{ state.lower }} yet.
+                        {% endfor %}
+                    </div>
+                </div>
+            </div> 
+         {% endfor %}
+    </div>
+</div>
+{% endblock %}

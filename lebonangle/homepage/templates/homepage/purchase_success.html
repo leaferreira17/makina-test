@@ -1,0 +1,15 @@
+{% extends 'homepage/base.html'%}
+{% block content %}
+<div id="app" class="container" style="max-width: 1200px;">
+    <div style="text-align: center !important;" class="py-5">
+        <h1>Thank you for your purchase !</h1>
+    </div>
+    <br/>
+    <div class="alert alert-success" role="alert">
+        Your purchase of the item "{{item.title}}" ended successfully !
+    </div>
+    <br/>
+    <form action="{% url 'item-list'%}">
+        <button class="btn btn-primary" type="submit">Return to items</button>
+    </form>
+{% endblock %}
